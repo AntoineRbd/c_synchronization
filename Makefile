@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-W -Wall -ansi -pedantic -std=c99 -g 
+CFLAGS=-W -Wall -pedantic -perror -std=c99 -g 
 INC=-I include/
 SRC=src/
 EXEC=main
@@ -13,4 +13,4 @@ $(SRC)%.o : $(SRC)%.c
     $(CC) $(INC) -o $@ -c $< $(CFLAGS) 
  
 clean:
-    rm -rf $(SRC)*.o;
+    rm -rf *.o;
