@@ -1,16 +1,10 @@
-CC=gcc
-CFLAGS=-W -Wall -pedantic -perror -std=c99 -g 
-INC=-I include/
-SRC=src/
-EXEC=main
- 
-all: $(EXEC)
- 
-main: $(SRC)main.c $(SRC)article.o 
-    $(CC) $(INC) -o $(SRC)$@ $^ $(CFLAGS) 
- 
-$(SRC)%.o : $(SRC)%.c
-    $(CC) $(INC) -o $@ -c $< $(CFLAGS) 
- 
+CC = gcc
+CFLAGS = -Iinclude -Wall -Wextra -std=c11
+SRC = main.c src/write_sem.c
+TARGET = main
+
+$(TARGET): $(SRC)
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
+
 clean:
-    rm -rf *.o;
+	rm -f $(TARGET)
